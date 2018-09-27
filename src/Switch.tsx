@@ -2,36 +2,37 @@ import clx from 'classnames'
 import React, { PureComponent } from 'react'
 
 interface Props {
+  /**
+   * whether the switch is checked or not
+   **/
   isChecked: boolean
+
+  /**
+   * callback triggered by click
+   **/
   onChange: (isChecked) => void
 }
+
 export class Switch extends PureComponent<Props, {}> {
-  state = {
-    isChecked: this.props.isChecked
-  }
   render() {
-    const isActive = this.state.isChecked
+    const isChecked = this.props.isChecked
     const switchClass = clx(
       {
-        'or-switch-checked': isActive
+        'or-switch-checked': isChecked
       },
       'or-switch'
     )
     return (
       <div className={switchClass} onClick={this.handleClick}>
-        <div className="switch-circle" />
+        <div className="or-switch-circle" />
       </div>
     )
   }
 
   handleClick = () => {
-    this.setState(
-      {
-        isChecked: !this.state.isChecked
-      },
-      () => {
-        this.props.onChange(this.state.isChecked)
-      }
-    )
+    const { onChange, isChecked } = this.props
+    if (onChange) {
+      onChange(!isChecked)
+    }
   }
 }
