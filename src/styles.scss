@@ -1,6 +1,6 @@
 @import "~or-theme";
 
-.#{$prefix}-switch {
+.or-switch {
   width: 40px;
   height: 20px;
   background-color: $gray4;
@@ -10,17 +10,17 @@
   border-radius: 40px;
   cursor: pointer;
 
-  &.active {
+  &.or-switch-checked{
     background-color: $basic-blue;
     border-color: $basic-blue;
 
-    .switch-circle {
+    .or-switch-circle {
       transform: translateX(100%);
       transition: transform .25s ease-in-out;
     }
   }
 
-  .switch-circle {
+  .or-switch-circle {
     width: 20px;
     height: 20px;
     background-color: $white;
