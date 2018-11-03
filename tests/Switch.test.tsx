@@ -1,7 +1,7 @@
 import { mount } from 'enzyme'
 import React, { PureComponent } from 'react'
 
-import { Switch } from '../src'
+import Switch from '../src'
 
 const mockCallBack = jest.fn()
 let wrapper
