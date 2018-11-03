@@ -1,0 +1,33 @@
+.or-switch {
+  width: 40px;
+  height: 20px;
+  background-color: #9E9E9E;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #9E9E9E;
+  border-radius: 40px;
+  cursor: pointer; }
+  .or-switch.or-switch-checked {
+    background-color: #2196F3;
+    border-color: #2196F3; }
+    .or-switch.or-switch-checked .or-switch-circle {
+      -webkit-transform: translateX(100%);
+              transform: translateX(100%);
+      transition: -webkit-transform .25s ease-in-out;
+      transition: transform .25s ease-in-out;
+      transition: transform .25s ease-in-out, -webkit-transform .25s ease-in-out; }
+  .or-switch .or-switch-circle {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: -webkit-transform .25s linear;
+    transition: transform .25s linear;
+    transition: transform .25s linear, -webkit-transform .25s linear; }
+
+.title {
+  margin-top: 30px;
+  margin-bottom: 5px; }
+
+
+/*# sourceMappingURL=iframe.800c35a4.chunk.css.map*/
