@@ -15,6 +15,7 @@ class Example extends PureComponent {
           是否开启: {this.state.value1 ? 'YES' : 'NO'}
         </div>
         <Switch
+          className="hello"
           isChecked={this.state.value1}
           onChange={this.handleChange('value1')}
         />

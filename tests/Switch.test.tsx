@@ -6,6 +6,14 @@ import Switch from '../src'
 const mockCallBack = jest.fn()
 let wrapper
 describe('src/index', () => {
+  describe('should render properly', () => {
+    it('#className', () => {
+      wrapper = mount(<SwitchWrapper defaultChecked={true} className="hello" />)
+      expect(wrapper.find('.or-switch').length).toBe(1)
+      expect(wrapper.find('.or-switch').hasClass('hello')).toBe(true)
+    })
+  })
+
   describe('defalult checked', () => {
     beforeEach(() => {
       wrapper = mount(<SwitchWrapper defaultChecked={true} />)
@@ -65,6 +73,7 @@ describe('src/index', () => {
 
 interface Props {
   defaultChecked: boolean
+  className?: string
 }
 
 class SwitchWrapper extends PureComponent<Props, {}> {
@@ -73,7 +82,13 @@ class SwitchWrapper extends PureComponent<Props, {}> {
   }
 
   render() {
-    return <Switch isChecked={this.state.value} onChange={this.handleChange} />
+    return (
+      <Switch
+        isChecked={this.state.value}
+        className={this.props.className}
+        onChange={this.handleChange}
+      />
+    )
   }
 
   handleChange = isChecked => {
