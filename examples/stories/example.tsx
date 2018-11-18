@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import Switch from '../../src'
+import Switch from 'or-switch'
 
 class Example extends PureComponent {
   state = {
