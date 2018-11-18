@@ -1,18 +1,21 @@
 @import "~or-theme";
 
+$or-switch-active-color: $or-basic-blue !default;
+$or-switch-inactive-color: $or-gray4 !default;
+
 .or-switch {
   width: 40px;
   height: 20px;
-  background-color: $gray4;
+  background-color: $or-switch-inactive-color;
   border-style: solid;
   border-width: 2px;
-  border-color: $gray4;
+  border-color: $or-switch-inactive-color;
   border-radius: 40px;
   cursor: pointer;
 
   &.or-switch-checked{
-    background-color: $basic-blue;
-    border-color: $basic-blue;
+    background-color: $or-switch-active-color;
+    border-color: $or-switch-active-color;
 
     .or-switch-circle {
       transform: translateX(100%);
@@ -23,7 +26,7 @@
   .or-switch-circle {
     width: 20px;
     height: 20px;
-    background-color: $white;
+    background-color: white;
     border-radius: 50%;
     transition: transform .25s linear;
   }
