@@ -3,6 +3,10 @@ import React, { PureComponent } from 'react'
 
 interface Props {
   /**
+   * custom className
+   **/
+  className?: string
+  /**
    * whether the switch is checked or not
    **/
   isChecked: boolean
@@ -15,12 +19,13 @@ interface Props {
 
 export class Switch extends PureComponent<Props, {}> {
   render() {
-    const isChecked = this.props.isChecked
+    const { isChecked, className } = this.props
     const switchClass = clx(
       {
         'or-switch-checked': isChecked
       },
-      'or-switch'
+      'or-switch',
+      className
     )
     return (
       <div className={switchClass} onClick={this.handleClick}>

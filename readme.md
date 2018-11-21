@@ -20,7 +20,131 @@ npm install or-switch
 yarn add or-switch
 ```
 
-## Docs
+## Usage
+- Config webpack `sass-loader` if you are using webpack.
+
+```js
+// webpack.config.js
+{
+  test: /\.scss$/,
+  use: [
+    'style-loader',
+    'css-loader',
+    'sass-loader'
+  ],
+  include: [
+    /node_modules\/or\-\w+/ //include or-components
+  ]
+}
+```
+
+## Basic Example
+
+```jsx
+import React, { PureComponent } from 'react'
+
+import Switch from 'or-switch'
+
+class Example extends PureComponent {
+  state = {
+    value1: false,
+    value2: true
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="title">
+          是否开启: {this.state.value1 ? 'YES' : 'NO'}
+        </div>
+        <Switch
+          className="hello"
+          isChecked={this.state.value1}
+          onChange={this.handleChange('value1')}
+        />
+        <div className="title">
+          是否开启: {this.state.value2 ? 'YES' : 'NO'}
+        </div>
+        <Switch
+          isChecked={this.state.value2}
+          onChange={this.handleChange('value2')}
+        />
+      </div>
+    )
+  }
+
+  handleChange = valueKey => {
+    return isChecked => {
+      this.setState({
+        [`${valueKey}`]: isChecked
+      })
+    }
+  }
+}
+
+export default Example
+
+```
+
+## API
+
+```ts
+interface Props {
+  /**
+   * custom className
+   **/
+  className?: string
+  /**
+   * whether the switch is checked or not
+   **/
+  isChecked: boolean
+
+  /**
+   * callback triggered by click
+   **/
+  onChange: (isChecked) => void
+}
+```
+
+## Customize Theme
+**Customize in webpack**
+
+The following variables in or-switch can be overridden:
+
+```scss
+$or-switch-active-color: $or-basic-blue !default;
+$or-switch-inactive-color: $or-gray4 !default;
+```
+
+Alternatively, you can override variables from [or-theme](https://github.com/one-react/theme/blob/master/src/variables.scss) to keep all or-components in a unified theme style.
+
+First you should create a `theme.scss` file to declare the variables you want to override.
+
+Then use the [data](https://github.com/webpack-contrib/sass-loader#environment-variables)  option provided by `sass-loader` to override the default values of the variables.
+
+We take a typical `webpack.config.js` file as example to customize it's sass-loader options.
+
+```js
+// webpack.config.js
+{
+  test: /\.scss$/,
+  use: [
+    'style-loader',
+    'css-loader',
+    {
+      loader: 'sass-loader',
+      options: {
+        data: fs.readFileSync(path.resolve(__dirname, 'theme.scss')) // pass theme.scss to sass-loader
+      }
+    }
+  ],
+  include: [
+    /node_modules\/or\-\w+/ //include or-components
+  ]
+}
+```
+
+## Demos and Docs
 > powered by [storybook](https://storybook.js.org/)
 
 [Click Here](https://one-react.github.io/switch)
