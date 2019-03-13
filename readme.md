@@ -1,6 +1,6 @@
 # One React Component: switch
 
-<p align="center"><img width="150" src="https://cdn.rawgit.com/one-react/assets/master/logo%402x.png" alt="logo"></p>
+<p align="center"><img width="150" src="https://cdn.jsdelivr.net/gh/one-react/assets/logo%402x.png" alt="logo"></p>
 
 [![TravisCI Build](https://img.shields.io/travis/one-react/switch.svg)](https://travis-ci.org/one-react/switch)
 [![CircieCI Build](https://img.shields.io/circleci/project/github/one-react/switch.svg)](https://circleci.com/gh/one-react/switch)
